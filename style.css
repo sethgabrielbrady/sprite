@@ -1,0 +1,16 @@
+body{
+  background-color:rgb(9, 54, 60);
+}
+
+#square{
+  position:absolute;
+  top:50px;
+  left:50px;
+  border: 2px solid rgb(252, 62, 88);
+  background-color: rgb(252, 62, 88);
+  }
+
+h1 {
+  font-family: sans-serif;
+  color:rgb(58, 221, 75)
+}
