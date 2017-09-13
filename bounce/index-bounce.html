@@ -8,12 +8,22 @@
 
   <body>
     <header>
-      <h1>Bouunce</h1>
-      <h2 id="xPos"></h2><h2 id="yPos"></h2>
+      <div style="display:inline"><h1>Bouunce</h1><h2 id="xPos"></h2><h2 id="yPos"></h2></div>
+
     </header>
-  <canvas id="square" width="50" height="50"></canvas>
-    <div id="bullet"></div>
+  <canvas id="ball" width="50" height="50"></canvas>
+  <div id="bullet"></div>
+  
    <script type='text/javascript' src='bounce.js'></script>
    <script type='text/javascript' src='../node_modules/jquery/dist/jquery.min.js'></script>
+
   </body>
 </html>
+
+
+<script>
+let heightW = $(window).height();
+let widthW = $(window).width();
+$("#xPos").html(heightW);
+$("#yPos").html(widthW);
+</script>
