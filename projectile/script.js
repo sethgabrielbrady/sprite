@@ -9,6 +9,7 @@ let yPos = 0;
 let playerFacing = " ";
 let current = {top: 0, left: 0};
 
+
 // Sprite movement and firing. Needs to be more fluid.
 
 document.addEventListener("keydown", function(event) {
@@ -79,36 +80,38 @@ document.addEventListener("keydown", function(event) {
   //Gets the char position when the "f" key is pressed
   // Need to get the direction the the char is facing
   if (event.which === 70) {
+    let screenW = $(window).width();
+    let screenH = $(window).height();
     getPosition(square);
     //resets the position
-    xPos = 0;
-    yPos = 0;
+
 
     $("#bullet").addClass("bullet");
     $(".bullet").css("width", 15);
     if(playerFacing === "east"){
       $(".bullet").css("left", current.left + 50);
-      $(".bullet").animate({left: current.left + 200}, 100);
+      $(".bullet").animate({left: current.left + (screenW - current.left)}, 1000);
       $(".bullet").css("top", current.top + 20);
     }else if(playerFacing === "west"){
       $(".bullet").css("left", current.left - 50);
-      $(".bullet").animate({left: current.left - 200}, 100);
+      $(".bullet").animate({left: current.left - screenW }, 1000);
       $(".bullet").css("top", current.top + 20);
     }else if(playerFacing === "north"){
       $(".bullet").css("top", current.top - 50);
-      $(".bullet").animate({top: current.top - 200}, 100);
+      $(".bullet").animate({top: current.top - screenH}, 1000);
       $(".bullet").css("left", current.left + 20);
     }else if(playerFacing === "south"){
       $(".bullet").css("top", current.top + 50);
-      $(".bullet").animate({top: current.top + 200}, 100);
+      $(".bullet").animate({top: current.top + screenH}, 1000);
       $(".bullet").css("left", current.left + 20);
     }else{
       return;
     }
     $(".bullet").animate({width: 0}, 200);
-
+    xPos = 0;
+    yPos = 0;
   }
-  
+
   document.addEventListener("keydown", function(event) {
     $("#xPos").html("X Position:" + xPos);
     $("#yPos").html("Y Position:"+ yPos);
